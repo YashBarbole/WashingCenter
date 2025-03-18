@@ -5,38 +5,31 @@ import waxPolishImage from "../assets/wax-polish.avif";
 
 const Services = () => {
   return (
-    <div className="text-center bg-amber-300 p-20">
-      <h2 className="text-4xl font-bold text-black mb-6">Our Services</h2>
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-        {/* Standard Car Wash Card */}
-        <div className="bg-white rounded-lg shadow-lg p-6 w-full md:w-1/3">
-          <h3 className="text-2xl font-bold text-black mb-4">Standard Car Wash</h3>
-          <img src={standardWashImage} alt="Standard Wash" className="w-full h-64 object-cover rounded-lg mb-4" />
-          <p className="text-lg font-medium text-black mt-4">
-            Our standard car wash includes a thorough exterior cleaning with soap and water, followed by a rinse and dry.
-          </p>
-         
-        </div>
-
-        {/* Interior Cleaning Card */}
-        <div className="bg-white rounded-lg shadow-lg p-6 w-full md:w-1/3">
-          <h3 className="text-2xl font-bold text-black mb-4">Interior Cleaning</h3>
-          <img src={interiorCleaningImage} alt="Interior Cleaning" className="w-full h-64 object-cover rounded-lg mb-4" />
-          <p className="text-lg font-medium text-black mt-4">
-            Our interior cleaning service includes vacuuming, wiping down surfaces, and sanitizing high-touch areas.
-          </p>
-      
-        </div>
-
-        {/* Wax and Polish Card */}
-        <div className="bg-white rounded-lg shadow-lg p-6 w-full md:w-1/3">
-          <h3 className="text-2xl font-bold text-black mb-4">Wax and Polish</h3>
-          <img src={waxPolishImage} alt="Wax and Polish" className="w-full h-64 object-cover rounded-lg mb-4" />
-          <p className="text-lg font-medium text-black mt-4">
-            Protect your car's paint with our premium wax and polish service, enhancing its shine and durability.
-          </p>
-         
-        </div>
+    <div className="text-center bg-amber-300 py-20 px-6">
+      <h2 className="text-5xl font-bold text-black mb-12">Our Services</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+        
+        {/* Service Cards */}
+        {[{
+          title: "Standard Car Wash",
+          image: standardWashImage,
+          description: "Our standard car wash includes a thorough exterior cleaning with soap and water, followed by a rinse and dry."
+        }, {
+          title: "Interior Cleaning",
+          image: interiorCleaningImage,
+          description: "Our interior cleaning service includes vacuuming, wiping down surfaces, and sanitizing high-touch areas."
+        }, {
+          title: "Wax and Polish",
+          image: waxPolishImage,
+          description: "Protect your car's paint with our premium wax and polish service, enhancing its shine and durability."
+        }].map((service, index) => (
+          <div key={index} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105">
+            <h3 className="text-3xl font-bold text-black mb-4">{service.title}</h3>
+            <img src={service.image} alt={service.title} className="w-full h-72 object-cover rounded-lg mb-4" />
+            <p className="text-lg font-medium text-black">{service.description}</p>
+          </div>
+        ))}
+        
       </div>
     </div>
   );

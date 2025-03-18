@@ -7,24 +7,19 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
 function App() {
- 
-      return (//yash testing
-        <Router>
-         
-            <Navbar />
-           
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/services" element={<Services />} />
-               
-                <Route path="/contact" element={<Contact />} />
-              </Routes>
-       
-            <Footer />
-        
-        </Router>
-      );
-    }
-    
+  return (
+    <Router>
+      <Navbar />
+      <div className="pt-20"> {/* Adds padding to avoid navbar overlap */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
+      <Footer />
+    </Router>
+  );
+}
 
 export default App;
